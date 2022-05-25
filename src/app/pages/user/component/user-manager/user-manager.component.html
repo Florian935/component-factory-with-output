@@ -1,0 +1,10 @@
+<div class="user-manager-container">
+  <app-user-information-form
+    (informationForm)="onReceiveInformationForm($event)"
+  ></app-user-information-form>
+  <ng-template appViewContainer></ng-template>
+  <button mat-raised-button color="primary" (click)="onAddUserInformation()">
+    Add User Information
+  </button>
+  <button mat-raised-button color="primary" (click)="log()">Log</button>
+</div>

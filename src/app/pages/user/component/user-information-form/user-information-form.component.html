@@ -1,0 +1,9 @@
+<form [formGroup]="informationForm">
+  <mat-form-field appearance="legacy">
+    <mat-label>Name</mat-label>
+    <input matInput required formControlName="name" />
+  </mat-form-field>
+</form>
+<app-user-address-form
+  (addressForm)="onReceiveAddressForm($event)"
+></app-user-address-form>
