@@ -18,6 +18,7 @@ export class UserManagerComponent implements OnInit {
   ngOnInit(): void {}
 
   onReceiveInformationForm(informationForm: FormGroup): void {
+    informationForm.disable();
     this._informationGroups.push(informationForm);
   }
 
@@ -27,12 +28,17 @@ export class UserManagerComponent implements OnInit {
         UserInformationFormComponent
       );
     component.instance.informationFormEmitter.subscribe(
-      (informationForm: FormGroup) =>
-        this._informationGroups.push(informationForm)
+      (informationForm: FormGroup) => {
+        informationForm.disable();
+        this._informationGroups.push(informationForm);
+      }
     );
   }
 
-  log(): void {
+  enableForms(): void {
+    this._informationGroups.forEach((FormGroup: FormGroup) =>
+      FormGroup.enable()
+    );
     console.log(this._informationGroups);
   }
 }

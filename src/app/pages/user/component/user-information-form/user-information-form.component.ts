@@ -15,7 +15,6 @@ export class UserInformationFormComponent implements OnInit {
 
   ngOnInit(): void {
     this._buildInformationForm();
-    this._emitInformationForm();
   }
 
   private _buildInformationForm() {
@@ -30,5 +29,6 @@ export class UserInformationFormComponent implements OnInit {
 
   onReceiveAddressForm(addressForm: FormGroup): void {
     this.informationForm.addControl('address', addressForm);
+    this._emitInformationForm();
   }
 }
